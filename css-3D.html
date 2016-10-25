@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: deepskyblue;
+            margin: 20px auto;
+
+            -webkit-transition: all 1s;
+            -moz-transition: all 1s;
+            -o-transition: all 1s;
+            transition: all 1s;
+        }
+        .box:hover{
+            /*先看2D效果实现*/
+            /*旋转rotate*/
+            /*-webkit-transform: rotate(180deg);*/
+            /*-moz-transform: rotate(180deg);*/
+            /*-ms-transform: rotate(180deg);*/
+            /*-o-transform: rotate(180deg);*/
+            /*transform: rotate(180deg); */
+            /*位移tranlate*/
+            /*-webkit-transform: translate(50px);*/
+            /*-moz-transform: translate(50px);*/
+            /*-ms-transform: translate(50px);*/
+            /*-o-transform: translate(50px);*/
+            /*transform: translate(50px);*/
+            /*缩放scale*/
+            /*-webkit-transform: scale(1.5);*/
+            /*-moz-transform: scale(1.5);*/
+            /*-ms-transform: scale(1.5);*/
+            /*-o-transform: scale(1.5);*/
+            /*transform: scale(1.5);*/
+            /*扭曲skew*/
+            /*-webkit-transform: skew(50deg);*/
+            /*-moz-transform: skew(50deg);*/
+            /*-ms-transform: skew(50deg);*/
+            /*-o-transform: skew(50deg);*/
+            /*transform: skew(50deg);*/
+            /*-webkit-transform: skewY(50deg);*/
+            /*-moz-transform: skewY(50deg);*/
+            /*-ms-transform: skewY(50deg);*/
+            /*-o-transform: skewY(50deg);*/
+            /*transform: skewY(50deg);*/
+            /*2D矩阵*/
+            -webkit-transform: matrix(1,1,-1,0,0,0);
+            -moz-transform: matrix(1,1,-1,0,0,0);
+            -ms-transform: matrix(1,1,-1,0,0,0);
+            -o-transform: matrix(1,1,-1,0,0,0);
+            transform: matrix(1,1,-1,0,0,0);
+        }
+
+        .show_3D{
+            width: 300px;
+            height: 300px;
+            /*background-color: greenyellow;*/
+            margin: 30px auto;
+
+            /*实现3D效果,必须先导入*/
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .show_3D>img:nth-child(1){
+            width: 200px;
+            height: 200px;
+
+            -webkit-transform: rotateX(45deg);
+            -moz-transform: rotateX(45deg);
+            -ms-transform: rotateX(45deg);
+            -o-transform: rotateX(45deg);
+            transform: rotateX(45deg);
+        }
+
+        .show_3D>img:nth-child(2){
+            width: 200px;
+            height: 200px;
+            /*3D效果实现通解*/
+            /*3D位移  translate3d(tx,ty,tz) 其中tz不能为百分比的值*/
+            /*-webkit-transform: translate3d(50px, -100px, 20px);*/
+            /*-moz-transform: translate3d(50px, -100px, 20px);*/
+            /*-ms-transform: translate3d(50px, -100px, 20px);*/
+            /*-o-transform: translate3d(50px, -100px, 20px);*/
+            /*transform: translate3d(50px, -100px, 20px);*/
+            /*transform: translate3d(50px, -100px, -20px);*/
+
+            /*3D缩放 scale3d() 配合rotate更容易看清*/
+            /*-webkit-transform: scale3D(1,1,5) rotateX(45deg);*/
+            /*-moz-transform: scale3D(1,1,5) rotateX(45deg);*/
+            /*-ms-transform: scale3D(1,1,5) rotateX(45deg);*/
+            /*-o-transform: scale3D(1,1,5) rotateX(45deg);*/
+            /*transform: scale3D(1,1,5) rotateX(45deg);*/
+
+            /*3D旋转 rotateX() rotateY() rotateZ() rotate3D(x,y,z,a)*/
+            /*!*其中x,y,z范围0-1,a是一个角度值,正值顺时针,负值逆时针*!*/
+            /*-webkit-transform: rotateX(-45deg);*/
+            /*-moz-transform: rotateX(-45deg);*/
+            /*-ms-transform: rotateX(-45deg);*/
+            /*-o-transform: rotateX(-45deg);*/
+            /*transform: rotateX(-45deg);*/
+
+            /*3D矩阵 matrix3d(sx, 0, 0, 0, 0, sy, 0, 0, 0, 0, sz, 0, 0, 0, 0, 1)*/
+            /*3D倾斜,倾斜是二维变形,不能再三维空间变形,元素可能会在X轴和Y轴倾斜，然后转化为三维，但它们不能在Z轴倾斜.*/
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+    <div class="show_3D">
+        <img src="img/pic_1.jpg" alt="">
+        <img src="img/pic_1.jpg" alt="">
+    </div>
+</body>
+</html>
